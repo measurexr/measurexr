@@ -43,7 +43,7 @@
 		"type": "image/png"
 	  }
 	],
-	"start_url": "/",
+	"start_url": ".",
 	"background_color": "#fcfcfc",
 	"theme_color": "#fcfcfc",
 	"display": "fullscreen"
