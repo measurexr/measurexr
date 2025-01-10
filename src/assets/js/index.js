@@ -2827,7 +2827,7 @@ THE SOFTWARE.
                   })).setClearColor(16777215, 0),
                 l.setPixelRatio(window.devicePixelRatio),
                 (l.xr.enabled = !0),
-                l.xr.setFramebufferScaleFactor(1),
+                l.xr.setFramebufferScaleFactor(2.0),
                 (u = a.scene = new i.Scene()),
                 (h = a.camera = new i.PerspectiveCamera(70, 1, 0.05, 100)),
                 u.add(h),
@@ -5256,8 +5256,6 @@ THE SOFTWARE.
               (l = e.container = new THREE.Object3D()),
               (h = new THREE.Object3D()),
               l.add(h)
-
-            if (1) {
               var t = new XMLHttpRequest()
               t.open('GET', n.MODELS_PATH + 'hand.buf'),
                 (t.responseType = 'arraybuffer'),
@@ -5283,27 +5281,6 @@ THE SOFTWARE.
                     n.renderOrder = 4096)
                 }),
                 t.send()
-            } else {
-
-              ;(function () {
-                var t, e, n
-                ;(e = new THREE.ShaderMaterial({
-                  uniforms: {
-                    u_handColor: { value: new THREE.Color(16579836) },
-                    u_screenColor: { value: new THREE.Color(2169372) },
-                    u_opacity: u,
-                  },
-                  transparent: !0,
-                  vertexShader: r('./hand.vert'),
-                  fragmentShader: r('./hand.frag'),
-                })),
-                  (t = new THREE.BoxGeometry(1, 1, 1)),
-                  (n = new THREE.Mesh(t, e)).scale
-                    .set(1, 1, 1)
-                    .multiplyScalar(0.3),
-                  h.add(n),
-                  (n.renderOrder = 4096)
-              })()
             }
           }),
             (e.reset = function () {
