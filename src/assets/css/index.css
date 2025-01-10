@@ -258,7 +258,7 @@ html.is-mobile #landing-bottom {
   height: 75px;
   background-size: cover;
   background-position: 50% 50%;
-  background-image: url('../images/qr.png');
+  background-image: url('../images/qr.svg');
 }
 @media only screen and (max-width: 400px) {
   html.is-mobile #landing-title {
