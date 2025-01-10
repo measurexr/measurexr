@@ -4402,7 +4402,8 @@ var global = function (name) {
                   1 === properties.showRatio,
                 ),
                 (properties.aboutRatio = a.saturate(
-                  properties.aboutRatio + (h.isActive ? 1 : -1) / r.ABOUT_DURATION / 60,
+                  properties.aboutRatio +
+                    (h.isActive ? 1 : -1) / r.ABOUT_DURATION / 60,
                 )),
                 (properties.licensesRatio = a.saturate(
                   properties.licensesRatio +
@@ -4781,7 +4782,9 @@ var global = function (name) {
                 (g.style.transform = 'translate3d(0,' + H + 'px,0)'),
                 (w = ''),
                 measurement.distances.AB &&
-                  ((w += (measurement.distances.AB * r.unitMultiplier).toFixed(1)),
+                  ((w += (measurement.distances.AB * r.unitMultiplier).toFixed(
+                    1,
+                  )),
                   measurement.distances.BC &&
                     ((w +=
                       ' x ' +
