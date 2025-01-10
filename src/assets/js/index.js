@@ -4329,8 +4329,9 @@ THE SOFTWARE.
           'use strict'
           t('../xr/xr')
           ;(n.init = function () {
+            const isAndroidChrome = document.documentElement.classList.contains('is-android-chrome')
             document.getElementById('prompt-btn').addEventListener('click', r),
-              document.documentElement.classList.contains('is-android-chrome')
+                isAndroidChrome
                 ? (document.querySelector(
                     '.prompt-msg.is-browser',
                   ).style.display = 'block')
@@ -5256,53 +5257,54 @@ THE SOFTWARE.
               (h = new THREE.Object3D()),
               l.add(h)
 
-            if (0) {
+            if (1) {
               var t = new XMLHttpRequest()
               t.open('GET', n.MODELS_PATH + 'hand.buf'),
                 (t.responseType = 'arraybuffer'),
                 (t.onload = function () {
-                  var t, e, n
-                  200 === this.status &&
-                    ((t = a.parseBuf(this.response)),
-                    (e = new THREE.ShaderMaterial({
-                      uniforms: {
-                        u_handColor: { value: new THREE.Color(16579836) },
-                        u_screenColor: { value: new THREE.Color(2169372) },
-                        u_opacity: u,
-                      },
-                      transparent: !0,
-                      vertexShader: r('./hand.vert'),
-                      fragmentShader: r('./hand.frag'),
-                    })),
-                    (t = geometry = new THREE.BoxGeometry(1, 1, 1)),
-                    (n = new THREE.Mesh(t, e)).scale
-                      .set(1, 1, 1)
-                      .multiplyScalar(0.3),
+                    var t, e, n;
+                    200 === this.status && (t = a.parseBuf(this.response),
+                    e = new THREE.ShaderMaterial({
+                        uniforms: {
+                            u_handColor: {
+                                value: new THREE.Color(16579836)
+                            },
+                            u_screenColor: {
+                                value: new THREE.Color(2169372)
+                            },
+                            u_opacity: u
+                        },
+                        transparent: !0,
+                        vertexShader: r("./hand.vert"),
+                        fragmentShader: r("./hand.frag")
+                    }),
+                    (n = new THREE.Mesh(t,e)).scale.set(1, 1, 1).multiplyScalar(.3),
                     h.add(n),
-                    (n.renderOrder = 4096))
+                    n.renderOrder = 4096)
                 }),
                 t.send()
-            }
+            } else {
 
-            ;(function () {
-              var t, e, n
-              ;(e = new THREE.ShaderMaterial({
-                uniforms: {
-                  u_handColor: { value: new THREE.Color(16579836) },
-                  u_screenColor: { value: new THREE.Color(2169372) },
-                  u_opacity: u,
-                },
-                transparent: !0,
-                vertexShader: r('./hand.vert'),
-                fragmentShader: r('./hand.frag'),
-              })),
-                (t = new THREE.BoxGeometry(1, 1, 1)),
-                (n = new THREE.Mesh(t, e)).scale
-                  .set(1, 1, 1)
-                  .multiplyScalar(0.3),
-                h.add(n),
-                (n.renderOrder = 4096)
-            })()
+              ;(function () {
+                var t, e, n
+                ;(e = new THREE.ShaderMaterial({
+                  uniforms: {
+                    u_handColor: { value: new THREE.Color(16579836) },
+                    u_screenColor: { value: new THREE.Color(2169372) },
+                    u_opacity: u,
+                  },
+                  transparent: !0,
+                  vertexShader: r('./hand.vert'),
+                  fragmentShader: r('./hand.frag'),
+                })),
+                  (t = new THREE.BoxGeometry(1, 1, 1)),
+                  (n = new THREE.Mesh(t, e)).scale
+                    .set(1, 1, 1)
+                    .multiplyScalar(0.3),
+                  h.add(n),
+                  (n.renderOrder = 4096)
+              })()
+            }
           }),
             (e.reset = function () {
               p = 0
