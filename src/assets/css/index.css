@@ -707,6 +707,7 @@ html.is-prompt #prompt {
   height: 100%;
   display: none;
   pointer-events: none;
+  z-index: 10000;
 }
 .is-webxr #xr-ui {
   display: block;

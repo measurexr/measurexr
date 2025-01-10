@@ -4366,7 +4366,7 @@ var global = function (name) {
         function (t, e, n) {
           'use strict'
           var r = t('../core/settings'),
-            i = t('../core/properties'),
+            properties = t('../core/properties'),
             a = t('../utils/math'),
             o = t('./uiBG'),
             s = t('./xrUI'),
@@ -4374,16 +4374,16 @@ var global = function (name) {
             l = t('./landing'),
             h = t('./about'),
             u = t('./licenses'),
-            p = t('./prompt'),
-            d = t('./cookies')
+            prompt = t('./prompt'),
+            cookies = t('./cookies')
           ;(n.init = function () {
             c.init(),
               l.init(),
               h.init(),
               u.init(),
-              p.init(),
-              d.init(),
-              i.isSupportWebXR && s.init()
+              prompt.init(),
+              cookies.init(),
+              properties.isSupportWebXR && s.init()
             o.init()
           }),
             (n.onResize = function (t, e) {
@@ -4394,21 +4394,21 @@ var global = function (name) {
                 o.onResize(t, e)
             }),
             (n.update = function (t) {
-              ;(i.showRatio = a.saturate(
-                i.showRatio + 1 / r.SHOW_DURATION / 60,
+              ;(properties.showRatio = a.saturate(
+                properties.showRatio + 1 / r.SHOW_DURATION / 60,
               )),
                 document.documentElement.classList.toggle(
                   'is-ready',
-                  1 === i.showRatio,
+                  1 === properties.showRatio,
                 ),
-                (i.aboutRatio = a.saturate(
-                  i.aboutRatio + (h.isActive ? 1 : -1) / r.ABOUT_DURATION / 60,
+                (properties.aboutRatio = a.saturate(
+                  properties.aboutRatio + (h.isActive ? 1 : -1) / r.ABOUT_DURATION / 60,
                 )),
-                (i.licensesRatio = a.saturate(
-                  i.licensesRatio +
+                (properties.licensesRatio = a.saturate(
+                  properties.licensesRatio +
                     (u.isActive ? 1 : -1.3) / r.LICENSES_DURATION / 60,
                 )),
-                i.isSupportWebXR && s.update(t)
+                properties.isSupportWebXR && s.update(t)
               c.update(t), l.update(t), h.update(t), u.update(t), o.update(t)
             })
         },
@@ -4781,7 +4781,7 @@ var global = function (name) {
                 (g.style.transform = 'translate3d(0,' + H + 'px,0)'),
                 (w = ''),
                 measurement.distances.AB &&
-                  ((w += (l.distances.AB * r.unitMultiplier).toFixed(1)),
+                  ((w += (measurement.distances.AB * r.unitMultiplier).toFixed(1)),
                   measurement.distances.BC &&
                     ((w +=
                       ' x ' +
