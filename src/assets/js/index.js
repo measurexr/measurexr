@@ -1,50 +1,17 @@
-var _____WB$wombat$assign$function_____ = function (name) {
-  return (
-    (self._wb_wombat &&
-      self._wb_wombat.local_init &&
-      self._wb_wombat.local_init(name)) ||
-    self[name]
-  )
-}
-if (!self.__WB_pmw) {
-  self.__WB_pmw = function (obj) {
-    this.__WB_source = obj
-    return this
-  }
+var global = function (name) {
+  return self[name]
 }
 {
-  let window = _____WB$wombat$assign$function_____('window')
-  let self = _____WB$wombat$assign$function_____('self')
-  let document = _____WB$wombat$assign$function_____('document')
-  let location = _____WB$wombat$assign$function_____('location')
-  let top = _____WB$wombat$assign$function_____('top')
-  let parent = _____WB$wombat$assign$function_____('parent')
-  let frames = _____WB$wombat$assign$function_____('frames')
-  let opener = _____WB$wombat$assign$function_____('opener')
+  let window = global('window')
+  let self = global('self')
+  let document = global('document')
+  let location = global('location')
+  let top = global('top')
+  let parent = global('parent')
+  let frames = global('frames')
+  let opener = global('opener')
 
-  /**The MIT License
-
-Copyright © 2010-2020 three.js authors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-*/
+  // require
   !(function a(o, s, c) {
     function l(e, t) {
       if (!s[e]) {
@@ -80,6 +47,7 @@ THE SOFTWARE.
     return l
   })(
     {
+      // an-array
       1: [
         function (t, e, n) {
           var r = Object.prototype.toString
@@ -93,6 +61,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // as-number
       2: [
         function (t, e, n) {
           e.exports = function (t, e) {
@@ -217,6 +186,7 @@ THE SOFTWARE.
         },
         { buffer: 5 },
       ],
+      // buffer
       5: [
         function (t, e, P) {
           ;(function (u) {
@@ -371,7 +341,7 @@ THE SOFTWARE.
                     return A(t).length
                   default:
                     if (i) return r ? -1 : T(t).length
-                    ;(e = ('' + e).toLowerCase()), (i = !0)
+                    ;(e = ('' + e).toLowerCase()), (i = true)
                 }
             }
             function e(t, e, n) {
@@ -441,7 +411,7 @@ THE SOFTWARE.
                     })(this, e, n)
                   default:
                     if (o) throw new TypeError('Unknown encoding: ' + t)
-                    ;(t = (t + '').toLowerCase()), (o = !0)
+                    ;(t = (t + '').toLowerCase()), (o = true)
                 }
             }
             function d(t, e, n) {
@@ -503,7 +473,7 @@ THE SOFTWARE.
                   } else -1 !== l && (h -= h - l), (l = -1)
               else
                 for (o < n + s && (n = o - s), h = n; 0 <= h; h--) {
-                  for (var u = !0, p = 0; p < s; p++)
+                  for (var u = true, p = 0; p < s; p++)
                     if (c(t, h + p) !== c(e, p)) {
                       u = !1
                       break
@@ -737,7 +707,7 @@ THE SOFTWARE.
                 return n
               }),
               (u.byteLength = p),
-              (u.prototype._isBuffer = !0),
+              (u.prototype._isBuffer = true),
               (u.prototype.swap16 = function () {
                 var t = this.length
                 if (t % 2 != 0)
@@ -896,7 +866,7 @@ THE SOFTWARE.
                       return g(this, t, e, n)
                     default:
                       if (u) throw new TypeError('Unknown encoding: ' + r)
-                      ;(r = ('' + r).toLowerCase()), (u = !0)
+                      ;(r = ('' + r).toLowerCase()), (u = true)
                   }
               }),
               (u.prototype.toJSON = function () {
@@ -1422,6 +1392,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // window
       7: [
         function (t, n, e) {
           ;(function (t) {
@@ -1447,6 +1418,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // ieee754
       8: [
         function (t, e, n) {
           ;(n.read = function (t, e, n, r, i) {
@@ -1515,6 +1487,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // inherits
       9: [
         function (t, e, n) {
           'function' == typeof Object.create
@@ -1541,6 +1514,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // is-buffer
       10: [
         function (t, e, n) {
           function r(t) {
@@ -1564,6 +1538,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // is-function
       11: [
         function (t, e, n) {
           e.exports = function (t) {
@@ -1583,6 +1558,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // layout-bmfont-text
       12: [
         function (t, e, n) {
           var o = t('word-wrapper'),
@@ -1816,6 +1792,7 @@ THE SOFTWARE.
         },
         { 'as-number': 2, 'word-wrapper': 25, 'xtend': 28 },
       ],
+      // load-bmfont
       13: [
         function (e, i, t) {
           ;(function (h) {
@@ -1856,7 +1833,7 @@ THE SOFTWARE.
                       Object.prototype.toString.call(i) &&
                       ((r = new Uint8Array(n)), (n = h.from(r, 'binary'))),
                     m(n) &&
-                      ((a = !0),
+                      ((a = true),
                       'string' == typeof n && (n = h.from(n, 'binary'))),
                     a ||
                       (h.isBuffer(n) && (n = n.toString(c.encoding)),
@@ -2105,6 +2082,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // parse-headers
       17: [
         function (t, e, n) {
           var l = t('./parse-attribs'),
@@ -2223,6 +2201,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // quad-indices
       20: [
         function (t, e, n) {
           var f = t('dtype'),
@@ -2344,6 +2323,7 @@ THE SOFTWARE.
           'quad-indices': 20,
         },
       ],
+      // utils
       22: [
         function (t, e, n) {
           var s = { min: [0, 0], max: [0, 0] }
@@ -2442,12 +2422,14 @@ THE SOFTWARE.
         },
         {},
       ],
+      // threejs
       24: [
         function (t, e, n) {
           e.exports = THREE
         },
         {},
       ],
+      // word-wrapper
       25: [
         function (t, n, e) {
           var u = /\n/,
@@ -2545,7 +2527,7 @@ THE SOFTWARE.
               throw new Error('callback argument missing')
             var i = !1,
               a = function (t, e, n) {
-                i || ((i = !0), r.callback(t, e, n))
+                i || ((i = true), r.callback(t, e, n))
               }
             function o() {
               var t = void 0,
@@ -2632,7 +2614,7 @@ THE SOFTWARE.
             if (
               ('json' in r &&
                 !1 !== r.json &&
-                ((m = !0),
+                ((m = true),
                 d.accept || d.Accept || (d.Accept = 'application/json'),
                 'GET' !== u &&
                   'HEAD' !== u &&
@@ -2647,7 +2629,7 @@ THE SOFTWARE.
               (l.onerror = e),
               (l.onprogress = function () {}),
               (l.onabort = function () {
-                s = !0
+                s = true
               }),
               (l.ontimeout = e),
               l.open(u, h, !f, r.username, r.password),
@@ -2657,7 +2639,7 @@ THE SOFTWARE.
                 (c = setTimeout(function () {
                   var t
                   s ||
-                    ((s = !0),
+                    ((s = true),
                     l.abort('timeout'),
                     ((t = new Error('XMLHttpRequest timeout')).code =
                       'ETIMEDOUT'),
@@ -2707,6 +2689,7 @@ THE SOFTWARE.
           'xtend': 28,
         },
       ],
+      // xml-parse-from-string
       27: [
         function (t, e, n) {
           e.exports =
@@ -2730,6 +2713,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // xtend
       28: [
         function (t, e, n) {
           e.exports = function () {
@@ -2743,6 +2727,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // properties
       29: [
         function (t, e, n) {
           'use strict'
@@ -2767,24 +2752,25 @@ THE SOFTWARE.
             (n.darkColor = new r.Color()),
             (n.brightColor = new r.Color()),
             (n.accentColor = new r.Color()),
-            (n.domOverlaySupported = !0),
+            (n.domOverlaySupported = true),
             (n.isPredefinedMode = !1),
             (n.isSupportWebGL = null),
             (n.isSupportWebXR = null)
         },
         { three: 24 },
       ],
+      // settings
       30: [
         function (t, e, n) {
           'use strict'
           ;(n.IMAGES_PATH = 'assets/images/'),
             (n.MODELS_PATH = 'assets/models/'),
             (n.VIDEOS_PATH = 'assets/videos/'),
-            (n.USE_WEBGL2 = !0),
+            (n.USE_WEBGL2 = true),
             (n.WEBGL_OPTION = {
-              antialias: !0,
-              alpha: !0,
-              xrCompatible: !0,
+              antialias: true,
+              alpha: true,
+              xrCompatible: true,
               powerPreference: 'high-performance',
             }),
             (n.IS_MOBILE =
@@ -2802,6 +2788,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // main
       31: [
         function (t, e, n) {
           'use strict'
@@ -2826,7 +2813,7 @@ THE SOFTWARE.
                     context: a.gl,
                   })).setClearColor(16777215, 0),
                 l.setPixelRatio(window.devicePixelRatio),
-                (l.xr.enabled = !0),
+                (l.xr.enabled = true),
                 l.xr.setFramebufferScaleFactor(2.0),
                 (u = a.scene = new i.Scene()),
                 (h = a.camera = new i.PerspectiveCamera(70, 1, 0.05, 100)),
@@ -2867,7 +2854,7 @@ THE SOFTWARE.
                     n.updateMatrixWorld(!0),
                     o.hitTest(e, n),
                     c.update(i))
-                  : (h.matrixAutoUpdate = !0),
+                  : (h.matrixAutoUpdate = true),
                 (a.canvas.style.visibility = o.isActive
                   ? 'visible'
                   : 'hidden')),
@@ -2907,6 +2894,7 @@ THE SOFTWARE.
           'three': 24,
         },
       ],
+      // Component
       32: [
         function (t, e, n) {
           'use strict'
@@ -2926,13 +2914,13 @@ THE SOFTWARE.
             (s._getCamera = function () {
               var t = i.renderer.xr
               return t.enabled && t.isPresenting
-                ? t.getCamera(i.camera).cameras[0]
+                ? t.getCamera(i.camera).cameras[0] || i.camera
                 : i.camera
             }),
             (s._getCameraPosition = function () {
               var t = i.renderer.xr
               return t.enabled && t.isPresenting
-                ? t.getCamera(i.camera).position
+                ? t.getCamera(i.camera).position.clone() || i.camera.position
                 : i.camera.position
             }),
             (s._getResolution = function (t) {
@@ -2946,7 +2934,7 @@ THE SOFTWARE.
               }
             }),
             (s._show = function () {
-              this.visible = !0
+              this.visible = true
             }),
             (s._hide = function () {
               this.visible = !1
@@ -2955,6 +2943,7 @@ THE SOFTWARE.
         },
         { '../core/properties': 29, 'three': 24 },
       ],
+      // Box
       33: [
         function (n, t, e) {
           'use strict'
@@ -3039,31 +3028,31 @@ THE SOFTWARE.
                 this.rect2.setPointA(t, e),
                 this.lineCD.setPointC(t),
                 this.lineFA.setPointB(t),
-                (this.hasPointA = !0)
+                (this.hasPointA = true)
             }),
             (h.setPointB = function (t, e) {
               this.pointB.copy(t),
                 this.rect.setPointB(t, e),
                 this.rect2.setPointB(t, e),
                 this.lineGB.setPointB(t),
-                (this.hasPointB = !0)
+                (this.hasPointB = true)
             }),
             (h.setPointC = function (t, e) {
               this.rawPointC.copy(t),
                 this.rect.setPointC(t, e),
                 this.rect2.setPointC(t, e),
                 this.lineCD.setPointA(t),
-                (this.hasPointC = !0)
+                (this.hasPointC = true)
             }),
             (h.setPointD = function (t, e) {
               ;(this.isPointDFromCamera = !1),
                 this.rawPointD.copy(t),
-                (this.hasPointD = !0)
+                (this.hasPointD = true)
             }),
             (h.setPointDFromCamera = function () {
-              ;(this.isPointDFromCamera = !0),
+              ;(this.isPointDFromCamera = true),
                 this.raycaster.setFromCamera(p, this._getCamera()),
-                (this.hasPointD = !0)
+                (this.hasPointD = true)
             }),
             (h.update = function (t) {
               {
@@ -3093,13 +3082,13 @@ THE SOFTWARE.
                               this.isPointDFromCamera
                                 ? ((this.mesh.scale.z = 1e5),
                                   (n = []),
-                                  (this.mesh.visible = !0),
+                                  (this.mesh.visible = true),
                                   this.mesh.updateMatrix(!0),
                                   this.mesh.updateWorldMatrix(!1, !1),
                                   this.mesh.raycast(this.raycaster, n),
                                   (this.mesh.visible = !1),
                                   n.length
-                                    ? ((this.pointerIsInsideBox = !0),
+                                    ? ((this.pointerIsInsideBox = true),
                                       (r = n[0].point).sub(this.pointC),
                                       (e = u
                                         .set(this.rect.normal, 0)
@@ -3118,17 +3107,17 @@ THE SOFTWARE.
                                       this.lineEDbis.enable(!0),
                                       this.lineFA.enable(!0),
                                       this.lineGB.enable(!0),
-                                      (this.mesh.visible = !0),
+                                      (this.mesh.visible = true),
                                       (this.rect.mesh.visible = !1),
                                       (this.rect2.mesh.visible = !1))
                                     : (this.lineCD.enable(!1),
                                       (this.mesh.visible = !1),
-                                      (this.rect.mesh.visible = !0),
-                                      (this.rect2.mesh.visible = !0),
+                                      (this.rect.mesh.visible = true),
+                                      (this.rect2.mesh.visible = true),
                                       this.lineEDbis.enable(!1),
                                       this.lineFA.enable(!1),
                                       this.lineGB.enable(!1)))
-                                : ((this.pointerIsInsideBox = !0),
+                                : ((this.pointerIsInsideBox = true),
                                   (e = this.rawPointC.distanceTo(
                                     this.rawPointD,
                                   )),
@@ -3145,7 +3134,7 @@ THE SOFTWARE.
                                   this.lineCD.setPointB(this.pointD),
                                   this.lineCD.setPointC(this.pointA),
                                   this.lineCD.enable(!0),
-                                  (this.mesh.visible = !0),
+                                  (this.mesh.visible = true),
                                   (this.rect.mesh.visible = !1),
                                   (this.rect2.mesh.visible = !1)),
                               this.pointerIsInsideBox
@@ -3204,6 +3193,7 @@ THE SOFTWARE.
           'three': 24,
         },
       ],
+      // box.frag
       34: [
         function (t, e, n) {
           e.exports =
@@ -3211,6 +3201,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // box.vert
       35: [
         function (t, e, n) {
           e.exports =
@@ -3218,6 +3209,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // Line
       36: [
         function (r, t, e) {
           'use strict'
@@ -3290,7 +3282,7 @@ THE SOFTWARE.
               depthTest: !1,
               depthWrite: !1,
             }))
-            ;(n.extensions.derivatives = !0),
+            ;(n.extensions.derivatives = true),
               (this.mesh = new a.Mesh(e, n)),
               this.add(this.mesh),
               (this.mesh.renderOrder = 1e3),
@@ -3313,15 +3305,15 @@ THE SOFTWARE.
             (h.setPointA = function (t) {
               this.pointA.position.copy(t),
                 this._updatePositionAttribute(t, 0),
-                (this.hasPointA = !0)
+                (this.hasPointA = true)
             }),
             (h.setPointB = function (t) {
               this.pointB.position.copy(t),
                 this._updatePositionAttribute(t, 6),
-                (this.hasPointB = !0)
+                (this.hasPointB = true)
             }),
             (h.setPointC = function (t) {
-              this.pointC.copy(t), (this.hasPointC = !0)
+              this.pointC.copy(t), (this.hasPointC = true)
             }),
             (h._updatePositionAttribute = function (t, e) {
               for (
@@ -3338,7 +3330,7 @@ THE SOFTWARE.
                   (a += 3)
               {
                 var o
-                ;(n.needsUpdate = !0),
+                ;(n.needsUpdate = true),
                   (this.distance = this.pointA.position.distanceTo(
                     this.pointB.position,
                   )),
@@ -3416,6 +3408,7 @@ THE SOFTWARE.
           'three': 24,
         },
       ],
+      // line.frag
       37: [
         function (t, e, n) {
           e.exports =
@@ -3423,6 +3416,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // line.vert
       38: [
         function (t, e, n) {
           e.exports =
@@ -3430,6 +3424,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // measurement
       39: [
         function (t, e, y) {
           'use strict'
@@ -3556,7 +3551,7 @@ THE SOFTWARE.
               }
             }),
             (y.step = 0),
-            (y.isEditMode = !0),
+            (y.isEditMode = true),
             (y.distances = { AB: null, BC: null, CD: null }),
             (y.container = null),
             (y.predefinedLength = 200),
@@ -3647,12 +3642,12 @@ THE SOFTWARE.
           function g() {
             var t
             ;(y.isEditMode && 3 === y.step && !1 === I.pointerIsInsideBox) ||
-              ((y.isEditMode = !0),
+              ((y.isEditMode = true),
               x.isPredefinedMode
                 ? C
                   ? ((C = !1), (x.isPredefinedMode = !1), (w = 'line'), U())
                   : b.isHit &&
-                    ((C = !0), M.copy(b.hitMatrix), a.togglePinButton(!0))
+                    ((C = true), M.copy(b.hitMatrix), a.togglePinButton(!0))
                 : ((t = z()),
                   y.step === t
                     ? U()
@@ -3702,6 +3697,7 @@ THE SOFTWARE.
           'three': 24,
         },
       ],
+      // Point
       40: [
         function (t, e, n) {
           'use strict'
@@ -3731,7 +3727,7 @@ THE SOFTWARE.
                   transparent: !0,
                   depthTest: !1,
                   depthWrite: !1,
-                })).extensions.derivatives = !0),
+                })).extensions.derivatives = true),
               (this.center = new a.Points(o, s)),
               (this.center.renderOrder = 1001),
               this.add(this.center)
@@ -3754,6 +3750,7 @@ THE SOFTWARE.
           'three': 24,
         },
       ],
+      // point.frag
       41: [
         function (t, e, n) {
           e.exports =
@@ -3761,6 +3758,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // point.vert
       42: [
         function (t, e, n) {
           e.exports =
@@ -3768,6 +3766,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // Rect
       43: [
         function (t, e, n) {
           'use strict'
@@ -3830,19 +3829,19 @@ THE SOFTWARE.
               this.pointA.copy(t),
                 this.pointADir.set(0, 1, 0).applyQuaternion(e),
                 this.lineAB.setPointA(t),
-                (this.hasPointA = !0)
+                (this.hasPointA = true)
             }),
             (c.setPointB = function (t, e) {
               this.pointB.copy(t),
                 this.pointBDir.set(0, 1, 0).applyQuaternion(e),
                 this.lineAB.setPointB(t),
                 this.lineBC.setPointA(t),
-                (this.hasPointB = !0)
+                (this.hasPointB = true)
             }),
             (c.setPointC = function (t, e) {
               this.rawPointC.copy(t),
                 this.pointCDir.set(0, 1, 0).applyQuaternion(e),
-                (this.hasPointC = !0)
+                (this.hasPointC = true)
             }),
             (c.update = function (t) {
               this.enabled &&
@@ -3899,7 +3898,7 @@ THE SOFTWARE.
                         this.isFlipped && this.mesh.matrix.multiply(d),
                         this.mesh.matrix.decompose(h, this.mesh.quaternion, u),
                         this.lineBC.enable(!0),
-                        (this.mesh.visible = !0),
+                        (this.mesh.visible = true),
                         this.pointD.copy(this.pointA),
                         this.pointD.add(this.pointC).sub(this.pointB),
                         this.lineCD.setPointA(this.pointC),
@@ -3927,6 +3926,7 @@ THE SOFTWARE.
         },
         { '../Component': 32, '../line/Line': 36, 'three': 24 },
       ],
+      // Text3D
       44: [
         function (s, c, t) {
           ;(function (t) {
@@ -3969,12 +3969,12 @@ THE SOFTWARE.
                 vertexShader: s('./msdf.vert'),
                 fragmentShader: s('./msdf.frag'),
               })
-              ;(e.extensions.derivatives = !0),
+              ;(e.extensions.derivatives = true),
                 (this.mesh = new r.Mesh(this.geometry, e)),
                 this.mesh.position.set(-0.02, 0, 0),
                 (this.mesh.renderOrder = 1002),
                 this.container.add(this.mesh),
-                (this.hasInit = !0)
+                (this.hasInit = true)
             }
             var o = n.prototype
             ;(c.exports = n),
@@ -4009,6 +4009,7 @@ THE SOFTWARE.
           'three-bmfont-text': 21,
         },
       ],
+      // msdf.frag
       45: [
         function (t, e, n) {
           e.exports =
@@ -4016,6 +4017,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // msdf.vert
       46: [
         function (t, e, n) {
           e.exports =
@@ -4023,6 +4025,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // about
       47: [
         function (t, e, n) {
           'use strict'
@@ -4091,6 +4094,7 @@ THE SOFTWARE.
           './licenses': 51,
         },
       ],
+      // cookies
       48: [
         function (t, e, n) {
           'use strict'
@@ -4136,6 +4140,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // footer
       49: [
         function (t, e, n) {
           'use strict'
@@ -4167,6 +4172,7 @@ THE SOFTWARE.
           './landing': 50,
         },
       ],
+      // landing
       50: [
         function (t, e, n) {
           'use strict'
@@ -4262,6 +4268,7 @@ THE SOFTWARE.
           './uiBG': 54,
         },
       ],
+      // licenses
       51: [
         function (t, e, n) {
           'use strict'
@@ -4279,7 +4286,7 @@ THE SOFTWARE.
               )
           }),
             (n.show = function () {
-              n.isActive = !0
+              n.isActive = true
             }),
             (n.onResize = function (t, e) {}),
             (n.update = function (t) {
@@ -4324,14 +4331,16 @@ THE SOFTWARE.
           '../utils/math': 58,
         },
       ],
+      // prompt
       52: [
         function (t, e, n) {
           'use strict'
           t('../xr/xr')
           ;(n.init = function () {
-            const isAndroidChrome = document.documentElement.classList.contains('is-android-chrome')
+            const isAndroidChrome =
+              document.documentElement.classList.contains('is-android-chrome')
             document.getElementById('prompt-btn').addEventListener('click', r),
-                isAndroidChrome
+              isAndroidChrome
                 ? (document.querySelector(
                     '.prompt-msg.is-browser',
                   ).style.display = 'block')
@@ -4352,6 +4361,7 @@ THE SOFTWARE.
         },
         { '../xr/xr': 67 },
       ],
+      // ui
       53: [
         function (t, e, n) {
           'use strict'
@@ -4416,6 +4426,7 @@ THE SOFTWARE.
           './xrUI': 55,
         },
       ],
+      // uiBG
       54: [
         function (t, e, x) {
           'use strict'
@@ -4683,6 +4694,7 @@ THE SOFTWARE.
           'three': 24,
         },
       ],
+      // xrUI
       55: [
         function (t, e, o) {
           'use strict'
@@ -4692,7 +4704,7 @@ THE SOFTWARE.
             a = t('../xr/xr'),
             s = t('../ui/prompt'),
             c = t('../visuals/visuals'),
-            l = t('../measurement/measurement'),
+            measurement = t('../measurement/measurement'),
             h = t('../utils/math'),
             u = t('../utils/ease')
           ;(o.init = function () {
@@ -4723,11 +4735,13 @@ THE SOFTWARE.
                 (R = a.isActive
                   ? ((I =
                       r.pinCanShow &&
-                      ((l.isEditMode && !!a.isHit) ||
-                        (l.isEditMode && 3 <= l.step) ||
-                        !l.isEditMode)),
-                    (E = 0 < l.step && l.isEditMode),
-                    1 < l.step && l.step < 4 && l.isEditMode)
+                      ((measurement.isEditMode && !!a.isHit) ||
+                        (measurement.isEditMode && 3 <= measurement.step) ||
+                        !measurement.isEditMode)),
+                    (E = 0 < measurement.step && measurement.isEditMode),
+                    1 < measurement.step &&
+                      measurement.step < 4 &&
+                      measurement.isEditMode)
                   : (E = I = !1))
               ;(D = h.saturate(
                 D + (I ? 1 : -1) / n.XR_BUTTONS_SHOW_DURATION / 60,
@@ -4766,17 +4780,20 @@ THE SOFTWARE.
                 (v.style.transform = 'scale(' + F + ')'),
                 (g.style.transform = 'translate3d(0,' + H + 'px,0)'),
                 (w = ''),
-                l.distances.AB &&
+                measurement.distances.AB &&
                   ((w += (l.distances.AB * r.unitMultiplier).toFixed(1)),
-                  l.distances.BC &&
+                  measurement.distances.BC &&
                     ((w +=
-                      ' x ' + (l.distances.BC * r.unitMultiplier).toFixed(1)),
-                    l.distances.CD &&
+                      ' x ' +
+                      (measurement.distances.BC * r.unitMultiplier).toFixed(1)),
+                    measurement.distances.CD &&
                       (w +=
                         ' x ' +
-                        (l.distances.CD * r.unitMultiplier).toFixed(1))))
+                        (measurement.distances.CD * r.unitMultiplier).toFixed(
+                          1,
+                        ))))
               ;(b.innerHTML = w),
-                (b.style.opacity = null !== l.distances.AB ? 1 : 0)
+                (b.style.opacity = null !== measurement.distances.AB ? 1 : 0)
               var e =
                 h.cfit(r.instructionShowRatio, 0.35, 0.55, 0, 1) *
                 h.cfit(r.instructionHideRatio, 0, 0.3, 1, 0)
@@ -4839,7 +4856,7 @@ THE SOFTWARE.
               p.removeEventListener('touchend', V)
           }
           function K(t) {
-            ;(S = !0),
+            ;(S = true),
               o.btnClickEventDispatcher.dispatchEvent({ type: 'pin', evt: t })
           }
           function $(t) {
@@ -4856,7 +4873,7 @@ THE SOFTWARE.
           function nt(t) {
             ;(W = at(t)),
               (q = at(t)),
-              (j = !0),
+              (j = true),
               o.inputEventDispatcher.dispatchEvent({
                 type: 'down',
                 evt: t,
@@ -4966,6 +4983,7 @@ THE SOFTWARE.
           'three': 24,
         },
       ],
+      // ease
       56: [
         function (t, e, n) {
           'use strict'
@@ -5150,6 +5168,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // geom
       57: [
         function (t, e, n) {
           'use strict'
@@ -5201,6 +5220,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // math
       58: [
         function (t, e, n) {
           'use strict'
@@ -5235,6 +5255,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // hand.frag
       59: [
         function (t, e, n) {
           e.exports =
@@ -5242,6 +5263,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // hand
       60: [
         function (r, t, e) {
           'use strict'
@@ -5262,29 +5284,31 @@ THE SOFTWARE.
               t.open('GET', n.MODELS_PATH + 'hand.buf'),
                 (t.responseType = 'arraybuffer'),
                 (t.onload = function () {
-                    var t, e, n;
-                    200 === this.status && (t = a.parseBuf(this.response),
-                    e = new THREE.ShaderMaterial({
-                        uniforms: {
-                            u_handColor: {
-                                value: new THREE.Color(16579836)
-                            },
-                            u_screenColor: {
-                                value: new THREE.Color(2169372)
-                            },
-                            u_opacity: u
+                  var t, e, n
+                  200 === this.status &&
+                    ((t = a.parseBuf(this.response)),
+                    (e = new THREE.ShaderMaterial({
+                      uniforms: {
+                        u_handColor: {
+                          value: new THREE.Color(16579836),
                         },
-                        transparent: !0,
-                        vertexShader: r("./hand.vert"),
-                        fragmentShader: r("./hand.frag")
-                    }),
-                    (n = new THREE.Mesh(t,e)).scale.set(1, 1, 1).multiplyScalar(.3),
+                        u_screenColor: {
+                          value: new THREE.Color(2169372),
+                        },
+                        u_opacity: u,
+                      },
+                      transparent: !0,
+                      vertexShader: r('./hand.vert'),
+                      fragmentShader: r('./hand.frag'),
+                    })),
+                    (n = new THREE.Mesh(t, e)).scale
+                      .set(1, 1, 1)
+                      .multiplyScalar(0.3),
                     h.add(n),
-                    n.renderOrder = 4096)
+                    (n.renderOrder = 4096))
                 }),
                 t.send()
             } else {
-
               ;(function () {
                 var t, e, n
                 ;(e = new THREE.ShaderMaterial({
@@ -5341,6 +5365,7 @@ THE SOFTWARE.
           './hand.vert': 61,
         },
       ],
+      // hand.vert
       61: [
         function (t, e, n) {
           e.exports =
@@ -5348,6 +5373,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // Reticle
       62: [
         function (e, t, n) {
           'use strict'
@@ -5441,6 +5467,7 @@ THE SOFTWARE.
           'three': 24,
         },
       ],
+      // reticle.frag
       63: [
         function (t, e, n) {
           e.exports =
@@ -5448,6 +5475,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // reticle.vert
       64: [
         function (t, e, n) {
           e.exports =
@@ -5455,6 +5483,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // reticleData
       65: [
         function (t, e, n) {
           'use strict'
@@ -5555,6 +5584,7 @@ THE SOFTWARE.
         },
         {},
       ],
+      // visuals
       66: [
         function (t, e, n) {
           'use strict'
@@ -5591,7 +5621,7 @@ THE SOFTWARE.
                     (function () {
                       d && clearTimeout(d)
                       f && clearTimeout(f)
-                      ;(m = !0), (i.pinCanShow = !0)
+                      ;(m = true), (i.pinCanShow = true)
                     })(),
                 p &&
                   ((i.instructionHideRatio = a.saturate(
@@ -5618,10 +5648,10 @@ THE SOFTWARE.
               (i.pinCanShow = !1)
           }
           function y() {
-            ;(u = !0), (f = setTimeout(x, 4e3))
+            ;(u = true), (f = setTimeout(x, 4e3))
           }
           function x() {
-            p = !0
+            p = true
           }
         },
         {
@@ -5636,6 +5666,7 @@ THE SOFTWARE.
           'three': 24,
         },
       ],
+      // xr
       67: [
         function (t, e, s) {
           'use strict'
@@ -5718,11 +5749,11 @@ THE SOFTWARE.
                             },
                           )
                         }),
-                        (l = !0)),
+                        (l = true)),
                       h &&
                         ((i = t.getHitTestResults(h)).length
                           ? ((a = i[0]),
-                            (o = !0),
+                            (o = true),
                             f.fromArray(a.getPose(n).transform.matrix),
                             f.decompose(u, d, p),
                             p.set(0, 1, 0),
@@ -5730,8 +5761,8 @@ THE SOFTWARE.
                             s.isHorizontalOnly &&
                               (o = p.y > s.isHorizontalOnlyNormalYThreshold),
                             o &&
-                              ((s.hasHit = !0),
-                              (s.isHit = !0),
+                              ((s.hasHit = true),
+                              (s.isHit = true),
                               s.hitMatrix.copy(f),
                               s.hitPos.copy(u),
                               s.hitQuat.copy(d),
@@ -5754,7 +5785,7 @@ THE SOFTWARE.
             (s.isHit = null),
             (s.wasHit = null),
             (s.hasHit = !1),
-            (s.isHorizontalOnly = !0)
+            (s.isHorizontalOnly = true)
           var l = !(s.isHorizontalOnlyNormalYThreshold = 0.75),
             h = void 0,
             r = void 0,
@@ -5767,7 +5798,7 @@ THE SOFTWARE.
               (s.session = t),
               c.renderer.xr.setReferenceSpaceType('local'),
               c.renderer.xr.setSession(t),
-              (s.isActive = !0),
+              (s.isActive = true),
               s.eventDispatcher.dispatchEvent({ type: 'start' }),
               r ||
                 ((r = c.renderer.xr.getController(0)).addEventListener(
@@ -5795,23 +5826,3 @@ THE SOFTWARE.
     [31],
   )
 }
-/*
-     FILE ARCHIVED ON 09:55:32 Jun 22, 2022 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 16:11:13 Jan 10, 2025.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  captures_list: 0.783
-  exclusion.robots: 0.044
-  exclusion.robots.policy: 0.027
-  esindex: 0.019
-  cdx.remote: 31.101
-  LoadShardBlock: 234.15 (3)
-  PetaboxLoader3.datanode: 133.554 (4)
-  PetaboxLoader3.resolve: 223.418 (2)
-  load_resource: 131.519
-*/
