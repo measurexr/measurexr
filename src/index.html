@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge,chrome=1"
+    />
+    <title>Measure Up</title>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=contain"
+    />
+    <meta
+      name="keywords"
+      content="WebXR, social distancing, covid19, coronavirus, two meters, 2m, 6ft, augmented reality"
+    />
+    <meta
+      name="description"
+      content="With Measure Up, you can measure spaces and objects around you using WebXR."
+    />
+    <meta
+      name="twitter:description"
+      content="With Measure Up, you can measure spaces and objects around you using WebXR."
+    />
+    <meta
+      property="og:description"
+      content="With Measure Up, you can measure spaces and objects around you using WebXR."
+    />
+    <meta
+      name="twitter:title"
+      content="Measure Up"
+    />
+    <meta
+      property="og:site_name"
+      content="Measure Up"
+    />
+    <meta
+      property="og:title"
+      content="Measure Up"
+    />
+    <meta
+      name="twitter:site"
+      content="@ExpWithGoogle"
+    />
+    <meta
+      name="twitter:creator"
+      content="@ExpWithGoogle"
+    />
+    <meta
+      name="twitter:url"
+      content="https://web.archive.org/web/20220622093830im_/https://measureup.withgoogle.com/"
+    />
+    <meta
+      property="og:url"
+      content="https://web.archive.org/web/20220622093830/https://measureup.withgoogle.com/"
+    />
+    <meta
+      property="og:locale"
+      content="en_US"
+    />
+    <meta
+      property="og:type"
+      content="website"
+    />
+    <meta
+      property="og:image"
+      content="https://web.archive.org/web/20220622093830im_/https://measureup.withgoogle.com/assets/images/share.png"
+    />
+    <meta
+      property="og:image:width"
+      content="1012"
+    />
+    <meta
+      property="og:image:height"
+      content="506"
+    />
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="384x384"
+      href="assets/images/icons/icon384.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="128x128"
+      href="assets/images/icons/icon128.png"
+    />
+    <meta
+      name="theme-color"
+      content="#fcfcfc"
+    />
+    <meta
+      name="msapplication-TileColor"
+      content="#fcfcfc"
+    />
+    <link
+      rel="manifest"
+      href="site.webmanifest"
+    />
+    <script>
+      ;(function (d, n) {
+        var ua = n.userAgent
+        var isAndroidChrome = /Android/i.test(ua) && /Chrome/i.test(ua)
+        var isMobile =
+          /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
+            ua,
+          ) ||
+          ((/iPad|iPhone|iPod/.test(n.platform) ||
+            (n.platform === 'MacIntel' && n.maxTouchPoints > 1)) &&
+            !window.MSStream)
+        d.classList.toggle('is-android-chrome', isAndroidChrome)
+        d.classList.toggle('is-mobile', isMobile)
+        d.classList.toggle('is-desktop', !isMobile)
+      })(document.documentElement, navigator)
+    </script>
+    <link
+      rel="stylesheet"
+      href="assets/css/index.css"
+    />
+    <script
+      src="assets/js/index.js"
+      defer="defer"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="gl-canvas"></canvas> <canvas id="bg-canvas"></canvas>
+      <div id="ui">
+        <div id="landing">
+          <h2
+            id="landing-title"
+            class="font-mono"
+            >MEASURE<span> </span>UP</h2
+          >
+          <div id="landing-bottom">
+            <p
+              id="landing-desc"
+              class="is-mobile-only"
+              >Measure spaces and<br />objects around you in<br />augmented
+              reality</p
+            >
+            <button
+              id="landing-ar-btn"
+              class="is-btn is-rect-box is-text-btn is-green-btn is-mobile-only"
+              >Launch</button
+            >
+            <div
+              id="landing-bottom-text"
+              class="is-desktop-only"
+              >Measure Up is only available using Chrome on Android<br />devices.
+              With a supported device, scan the QR code<br />with your phone
+              camera to take you to the mobile site.</div
+            >
+          </div>
+        </div>
+        <div class="cookies">
+          <div class="cookies__inner">
+            <div class="cookies__icon">
+              <div class="cookies__icon-inner">
+                <svg
+                  class="cookies__icon-svg"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewbox="0 0 37 37"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M24.8 10.4v-.9c0-1.762-.9-2.7-2.7-2.7h-.9a.9.9 0 01-.9-.9V2.3C20.3.538 18.5.5 18.5.5 8.237.5-.018 9.088.525 19.47c.477 9.085 7.92 16.528 17.006 17.005 10.381.544 18.97-7.712 18.97-17.975v-1.8a1.8 1.8 0 00-1.8-1.8h-3.598a.903.903 0 01-.903-.903V13.1c0-1.688-.862-2.662-2.7-2.7h-2.7zM7.328 19.35a2.704 2.704 0 01-3.178-3.18 2.703 2.703 0 012.122-2.12 2.702 2.702 0 011.057 5.3zm3.123-9.322a2.704 2.704 0 013.178-3.178 2.703 2.703 0 012.12 2.12 2.704 2.704 0 01-3.177 3.18 2.703 2.703 0 01-2.121-2.122zm6.777 21.922a2.704 2.704 0 01-3.178-3.18 2.703 2.703 0 012.122-2.12 2.704 2.704 0 013.178 3.178 2.703 2.703 0 01-2.122 2.122zm.372-9.85a2.7 2.7 0 110-5.4 2.7 2.7 0 010 5.4zm9 3.6a2.7 2.7 0 110-5.4 2.7 2.7 0 010 5.4z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="cookies__content">
+              <p class="cookies__text"
+                >Measure Up uses cookies from Google to analyze traffic</p
+              >
+              <div class="cookies__buttons">
+                <button
+                  class="btn cookies__button cookies__button--ok"
+                  aria-label="Ok got it"
+                >
+                  <span class="is-mobile-only">OK, Got it</span>
+                  <span class="is-desktop-only">OK</span>
+                </button>
+                <a
+                  class="btn cookies__button"
+                  href="https://web.archive.org/web/20220622093830/https://policies.google.com/technologies/cookies"
+                  target="_blank"
+                  >More Details</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="about">
+          <div
+            id="about-btn"
+            class="is-btn is-rect-box"
+            ><span class="is-x">x</span><span class="is-i">i</span></div
+          >
+          <div id="about-inner">
+            <div id="about-desc">
+              <div class="is-desktop-only"
+                >With Measure Up, you can measure spaces and objects around you
+                using WebXR.<br /><br />To launch Measure Up, please visit this
+                site using the Chrome browser on an Android device.</div
+              >
+              <div class="is-mobile-only"
+                >You can use Measure Up to take quick measurements of the spaces
+                and objects around you in augmented reality. Measurements may
+                vary slightly from device to device, and should be taken as a
+                guide.<br /><br />Measure Up uses the WebXR APIs built into
+                Chrome, and runs entirely in your browser. All data processing
+                and space mapping happens in your browser and no data ever
+                leaves your device.</div
+              >
+            </div>
+          </div>
+        </div>
+        <div id="licenses">
+          <div id="licenses-title">3rd Party licence</div>
+          <div id="licenses-content-outer">
+            <div id="licenses-content-inner">
+              <div id="licenses-content">
+                <h4>The MIT License</h4>
+                <p>Copyright © 2010-2020 three.js authors</p>
+                <p
+                  >Permission is hereby granted, free of charge, to any person
+                  obtaining a copy of this software and associated documentation
+                  files (the "Software"), to deal in the Software without
+                  restriction, including without limitation the rights to use,
+                  copy, modify, merge, publish, distribute, sublicense, and/or
+                  sell copies of the Software, and to permit persons to whom the
+                  Software is furnished to do so, subject to the following
+                  conditions:</p
+                >
+                <p
+                  >The above copyright notice and this permission notice shall
+                  be included in all copies or substantial portions of the
+                  Software.</p
+                >
+                <p
+                  >THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+                  KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+                  WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+                  PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+                  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+                  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+                  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p
+                >
+              </div>
+            </div>
+            <button
+              id="licenses-btn"
+              class="is-btn is-rect-box is-text-btn"
+              >Close</button
+            >
+          </div>
+        </div>
+        <div
+          id="footer"
+          class="font-mono"
+        >
+          <a
+            class="footer-link is-btn"
+            href="https://web.archive.org/web/20220622093830/https://policies.google.com/privacy"
+            target="_blank"
+            >Privacy</a
+          >
+          <a
+            class="footer-link is-btn"
+            href="https://web.archive.org/web/20220622093830/https://policies.google.com/terms"
+            target="_blank"
+            >Terms</a
+          >
+          <a
+            id="about-licenses-btn"
+            class="footer-link is-btn"
+            >3rd Party licence</a
+          >
+        </div>
+      </div>
+      <div id="xr-ui">
+        <div class="xr__how-to is-rect-box"
+          >To find the ground, point your phone downwards and move it
+          around</div
+        >
+        <header class="xr__header">
+          <div class="xr__unit">
+            <button class="xr__unit-btn is-rect-box">cm</button>
+            <div class="xr__unit-text font-mono">5.7</div>
+          </div>
+          <button class="xr__close is-rect-box">
+            <span class="btn-icon">
+              <svg
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                viewbox="0 0 21 21"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M2.799 0L0 2.799l7.347 7.346L0 17.492 2.8 20.29l7.346-7.346 7.346 7.346 2.8-2.799-7.347-7.346L20.29 2.8 17.492 0l-7.347 7.347L2.8 0z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
+        </header>
+        <footer class="xr__footer">
+          <button class="xr__undo is-btn is-rect-box">Undo</button>
+          <button class="xr__pin">
+            <div class="xr__pin-spotlight"></div>
+            <div class="xr__pin-triangle"></div>
+            <div class="xr__pin-shadow"></div>
+            <div class="xr__pin-content">
+              <span class="btn-icon xr__pin-icon xr__pin-icon--pointer">
+                <svg
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewbox="0 0 52 52"
+                >
+                  <circle
+                    cx="26"
+                    cy="26"
+                    r="5"
+                    fill="currentColor"
+                  />
+                  <circle
+                    cx="26"
+                    cy="26"
+                    r="19.5"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  />
+                  <path
+                    stroke="currentColor"
+                    stroke-width="3"
+                    d="M0 24.5h6M46 24.5h6M27.5 0v6M27.5 46v6"
+                  />
+                </svg>
+              </span>
+              <span class="btn-icon xr__pin-icon xr__pin-icon--refresh">
+                <svg
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewbox="0 0 53 46"
+                >
+                  <path
+                    d="M30 2c11.598 0 21 9.402 21 21s-9.402 21-21 21S9 34.598 9 23c0-3.825 1.023-7.411 2.81-10.5"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  />
+                  <path
+                    d="M1.285 16.262L12.04 10.95l5.312 10.755"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  />
+                </svg>
+              </span>
+            </div>
+          </button>
+          <button class="xr__done is-btn is-rect-box">Done</button>
+        </footer>
+      </div>
+    </div>
+    <div id="prompt">
+      <div
+        id="prompt-box"
+        class="is-rect-box"
+      >
+        <h4 class="prompt-msg is-browser"
+          >You need a newer version of Chrome to run this experiment.<br />Visit
+          the Google Play Store to update.</h4
+        >
+        <h4 class="prompt-msg is-device"
+          >Your device is not supported. This experience requires Chrome 83+ for
+          Android to run.</h4
+        >
+        <button
+          id="prompt-btn"
+          class="is-btn is-rect-box is-text-btn is-green-btn"
+          >Okay</button
+        >
+      </div>
+    </div>
+    <div id="landscape">
+      <div id="landscape-text"
+        >Measure Up only works in portrait mode. <br />Rotate your device to
+        continue using.</div
+      >
+    </div>
+  </body></html
+>
