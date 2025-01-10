@@ -1,6 +1,40 @@
 {
 	"short_name": "Measure Up",
-	"name": "Measure Up",
+	"name": "Measure Up - AR Measurement Tool",
+	"description": "Put down the tape measure and pick up your phone! Measure Up uses WebXR to help you calculate the length, area and volume of the things around you - all straight from the browser.",
+	"categories": ["utilities", "tools", "productivity", "augmented-reality"],
+	"start_url": ".",
+  "display": "standalone",
+  "display_override": ["fullscreen"],
+  "orientation": "natural",
+  "background_color": "#fcfcfc",
+  "theme_color": "#fcfcfc",
+  "lang": "en",
+  "dir": "ltr",
+  "features": [
+    "WebXR Device API",
+    "Camera Access",
+    "Gyroscope",
+    "Accelerometer"
+  ],
+  "required_features": [
+    "WebXR Device API"
+  ],
+  "permissions": [
+    "camera",
+    "gyroscope",
+    "accelerometer"
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "protocol_handlers": [
+    {
+      "protocol": "web+measureup",
+      "url": "/measure?target=%s"
+    }
+  ],
+  "xr_default_mode": "immersive-ar",
+  "xr_available_modes": ["immersive-ar"],
 	"icons": [
 	  {
 		"src": "assets/images/icons/icon72.png",
@@ -43,8 +77,21 @@
 		"type": "image/png"
 	  }
 	],
-	"start_url": ".",
-	"background_color": "#fcfcfc",
-	"theme_color": "#fcfcfc",
-	"display": "fullscreen"
-  }
+	"shortcuts": [],
+	"screenshots": [
+	 {
+      "src": "assets/images/screenshots/mobile.png",
+      "sizes": "645x1398",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Measuring length in AR"
+    },
+    {
+      "src": "assets/images/screenshots/desktop.png",
+      "sizes": "1368x912",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Measuring area in AR"
+    }
+   ]
+ }
