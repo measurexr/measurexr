@@ -2988,7 +2988,7 @@ var global = function (name) {
                 },
                 vertexShader: n('./box.vert'),
                 fragmentShader: n('./box.frag'),
-                transparent: !0,
+                transparent: true,
               }))
             ;(this.mesh = new s.Mesh(t, e)), this.add(this.mesh)
           }
