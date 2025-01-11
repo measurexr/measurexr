@@ -91,6 +91,10 @@
       href="assets/images/icons/icon128.png"
     />
     <meta
+      name="color-scheme"
+      content="light dark"
+    />
+    <meta
       name="theme-color"
       content="#fcfcfc"
     />
@@ -112,7 +116,7 @@
           ) ||
           ((/iPad|iPhone|iPod/.test(n.platform) ||
             (navigator && navigator.maxTouchPoints > 0) ||
-              (n.platform === 'MacIntel' && n.maxTouchPoints > 1)) &&
+            (n.platform === 'MacIntel' && n.maxTouchPoints > 1)) &&
             !window.MSStream)
         d.classList.toggle('is-android-chrome', isAndroidChrome)
         d.classList.toggle('is-mobile', isMobile)

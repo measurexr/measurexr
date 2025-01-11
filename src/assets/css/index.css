@@ -26,6 +26,7 @@ body {
   background-color: #fcfcfc;
   overflow: hidden;
 }
+
 html.is-desktop .is-mobile-only,
 html.is-mobile .is-desktop-only {
   display: none;
@@ -893,3 +894,46 @@ playback timings (ms):
   PetaboxLoader3.resolve: 272.245 (2)
   load_resource: 76.181
 */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #211a1c;
+    color: #fcfcfc;
+  }
+
+  .btn-icon,
+  #bg-canvas {
+    filter: invert(1);
+  }
+
+  #licenses {
+    color: #211a1c;
+  }
+
+  #ui {
+    color: #fcfcfc;
+  }
+
+  #about .is-rect-box,
+  #licenses .is-rect-box {
+    color: #fcfcfc;
+  }
+
+  .is-rect-box {
+    box-shadow: 4px 4px 0 #fcfcfc;
+    border: 1px solid #fcfcfc;
+    background-color: #211a1c;
+  }
+
+  .is-rect-box:before {
+    border-color: transparent #fcfcfc transparent transparent;
+  }
+
+  .is-rect-box:after {
+    border-color: transparent transparent transparent #211a1c;
+  }
+
+  #landing-bottom-text:before {
+    filter: invert(1); /* Fully inverts the image colors */
+  }
+}
