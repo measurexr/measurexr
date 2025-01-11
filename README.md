@@ -2,7 +2,7 @@
 
 Measure XR is a web-based Augmented Reality (AR) measurement tool that allows users to measure spaces and objects in their environment using WebXR technology.
 
-![Measure XR Demo](assets/videos/unnamed2.gif)
+![Measure XR Shape](https://measurexr.github.io/measurexr/assets/videos/unnamed.gif)
 
 ## Project History & Attribution
 
