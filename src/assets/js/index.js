@@ -4101,9 +4101,10 @@ var global = function (name) {
           n.init = function () {
             ;(r = document.querySelector('.cookies')),
               (i = document.querySelector('.cookies__button--ok')),
+              (j = document.querySelector('.cookies__button--reject')),
               (function (t) {
                 for (
-                  var e = t + '=', n = document.cookie.split(';'), r = 0;
+                  var e = t + '=', n = document.cookie?.split(';'), r = 0;
                   r < n.length;
                   r++
                 ) {
@@ -4113,11 +4114,16 @@ var global = function (name) {
                 }
                 return
               })('hasAcceptedCookies') ||
-                (i.addEventListener('click', a), setTimeout(o, 1500))
+                i.addEventListener('click', a.bind(null, true)),
+              j.addEventListener('click', a.bind(null, false)),
+              setTimeout(() => {
+                o(document.cookie?.indexOf('hasAcceptedCookies=') === -1)
+              }, 1500)
           }
           var r = void 0,
-            i = void 0
-          function a() {
+            i = void 0,
+            j = void 0
+          function a(hasAccepted) {
             !(function (t, e, n) {
               var r = ''
               {
@@ -4129,13 +4135,11 @@ var global = function (name) {
                   (r = '; expires=' + i.toUTCString()))
               }
               document.cookie = t + '=' + (e || '') + r + '; path=/'
-            })('hasAcceptedCookies', !0, 30),
+            })('hasAcceptedCookies', hasAccepted, 30),
               o(!1)
           }
-          function o() {
-            var t =
-              !(0 < arguments.length && void 0 !== arguments[0]) || arguments[0]
-            r.classList.toggle('is-visible', t)
+          function o(visible) {
+            r.classList.toggle('is-visible', visible)
           }
         },
         {},
@@ -4280,10 +4284,7 @@ var global = function (name) {
             ;(l = document.getElementById('licenses')),
               (h = l.querySelector('.title')),
               (u = l.querySelector('.content-inner')),
-              (p = l.querySelector('.exit-btn')).addEventListener(
-                'click',
-                r,
-              )
+              (p = l.querySelector('.exit-btn')).addEventListener('click', r)
           }),
             (n.show = function () {
               n.isActive = true

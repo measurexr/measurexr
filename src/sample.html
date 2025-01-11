@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>three.js ar - cones</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
     <!-- Use CDN for three.js -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/vr/ARButton.js"></script>
@@ -61,7 +64,10 @@
         z-index: 99999;
       }
 
-      a, button, input, select {
+      a,
+      button,
+      input,
+      select {
         pointer-events: auto;
       }
 
@@ -69,8 +75,8 @@
         z-index: 2 !important;
       }
 
-      @media all and ( max-width: 640px ) {
-        .lil-gui.root { 
+      @media all and (max-width: 640px) {
+        .lil-gui.root {
           right: auto;
           top: auto;
           max-height: 50%;
@@ -92,7 +98,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        background: rgba(0,0,0,0.7);
+        background: rgba(0, 0, 0, 0.7);
       }
 
       #overlay button {
@@ -116,75 +122,86 @@
     </style>
   </head>
   <body>
-
     <div id="info">
-      <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> ar - cones<br/>(Chrome Android 81+)
+      <a
+        href="https://threejs.org"
+        target="_blank"
+        rel="noopener"
+        >three.js</a
+      >
+      ar - cones<br />(Chrome Android 81+)
     </div>
 
     <!-- Add a button to trigger cone addition -->
     <button id="add-cone">Add Cone</button>
 
     <script type="module">
-      import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js';
-      import { ARButton } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/webxr/ARButton.js';
+      import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js'
+      import { ARButton } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/webxr/ARButton.js'
 
-      let camera, scene, renderer;
-      let controller;
-      let geometry, material;
+      let camera, scene, renderer
+      let controller
+      let geometry, material
 
-      init();
+      init()
 
       function init() {
+        const container = document.createElement('div')
+        document.body.appendChild(container)
 
-        const container = document.createElement('div');
-        document.body.appendChild(container);
+        scene = new THREE.Scene()
 
-        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(
+          70,
+          window.innerWidth / window.innerHeight,
+          0.01,
+          20,
+        )
 
-        camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 20);
+        const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 3)
+        light.position.set(0.5, 1, 0.25)
+        scene.add(light)
 
-        const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 3);
-        light.position.set(0.5, 1, 0.25);
-        scene.add(light);
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+        renderer.setPixelRatio(window.devicePixelRatio)
+        renderer.setSize(window.innerWidth, window.innerHeight)
+        renderer.setAnimationLoop(animate)
+        renderer.xr.enabled = true
+        container.appendChild(renderer.domElement)
 
-        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setAnimationLoop(animate);
-        renderer.xr.enabled = true;
-        container.appendChild(renderer.domElement);
-
-        document.body.appendChild(ARButton.createButton(renderer));
+        document.body.appendChild(ARButton.createButton(renderer))
 
         // Initialize geometry for the cones
-        geometry = new THREE.ConeGeometry(0.05, 0.2, 32);
+        geometry = new THREE.ConeGeometry(0.05, 0.2, 32)
 
         // Set up event listener to add cones when the button is clicked
-        document.getElementById('add-cone').addEventListener('click', addCone);
+        document.getElementById('add-cone').addEventListener('click', addCone)
 
-        controller = renderer.xr.getController(0);
-        controller.addEventListener('select', addCone);
-        scene.add(controller);
+        controller = renderer.xr.getController(0)
+        controller.addEventListener('select', addCone)
+        scene.add(controller)
 
-        window.addEventListener('resize', onWindowResize);
+        window.addEventListener('resize', onWindowResize)
       }
 
       function addCone() {
-        const material = new THREE.MeshPhongMaterial({ color: 0xffffff * Math.random() });
-        const mesh = new THREE.Mesh(geometry, material);
-        mesh.position.set(0, 0, -0.3).applyMatrix4(controller.matrixWorld);
-        mesh.quaternion.setFromRotationMatrix(controller.matrixWorld);
-        scene.add(mesh);
+        const material = new THREE.MeshPhongMaterial({
+          color: 0xffffff * Math.random(),
+        })
+        const mesh = new THREE.Mesh(geometry, material)
+        mesh.position.set(0, 0, -0.3).applyMatrix4(controller.matrixWorld)
+        mesh.quaternion.setFromRotationMatrix(controller.matrixWorld)
+        scene.add(mesh)
       }
 
       function onWindowResize() {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight
+        camera.updateProjectionMatrix()
+        renderer.setSize(window.innerWidth, window.innerHeight)
       }
 
       function animate() {
-        renderer.render(scene, camera);
+        renderer.render(scene, camera)
       }
     </script>
   </body>

@@ -407,13 +407,22 @@ html.is-mobile #landing-bottom {
 .cookies__button:visited {
   color: #fff;
 }
-.is-mobile .cookies__button:active {
+.is-mobile .cookies__button--ok:active {
   color: #21e240;
 }
-.is-desktop .cookies__button:hover {
+.is-desktop .cookies__button--ok:hover {
   color: #21e240;
 }
-.is-desktop .cookies__button:active {
+.is-desktop .cookies__button--ok:active {
+  color: #fcfcfc;
+}
+.is-mobile .cookies__button--reject:active {
+  color: #e91e63;
+}
+.is-desktop .cookies__button--reject:hover {
+  color: #e91e63;
+}
+.is-desktop .cookies__button--reject:active {
   color: #fcfcfc;
 }
 @media (min-width: 1440px) {
@@ -934,7 +943,7 @@ playback timings (ms):
   }
 
   .is-rect-box:after {
-    border-color: transparent transparent #211a1c transparent ;
+    border-color: transparent transparent #211a1c transparent;
   }
 
   #landing-bottom-text:before {
