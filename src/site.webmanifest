@@ -1,97 +1,106 @@
 {
-	"short_name": "Measure XR",
-	"name": "Measure XR - AR Measurement Tool",
-	"description": "Put down the tape measure and pick up your phone! Measure XR uses WebXR to help you calculate the length, area and volume of the things around you - all straight from the browser.",
-	"categories": ["utilities", "tools", "productivity", "augmented-reality"],
-	"start_url": ".",
-  "display": "standalone",
-  "display_override": ["fullscreen"],
-  "orientation": "natural",
-  "background_color": "#fcfcfc",
-  "theme_color": "#fcfcfc",
-  "lang": "en",
-  "dir": "ltr",
-  "features": [
-    "WebXR Device API",
-    "Camera Access",
-    "Gyroscope",
-    "Accelerometer"
-  ],
-  "required_features": [
-    "WebXR Device API"
-  ],
-  "permissions": [
-    "camera",
-    "gyroscope",
-    "accelerometer"
-  ],
-  "related_applications": [],
-  "prefer_related_applications": false,
-  "protocol_handlers": [
-    {
-      "protocol": "web+measurexr",
-      "url": "/?target=%s"
-    }
-  ],
-  "xr_default_mode": "immersive-ar",
-  "xr_available_modes": ["immersive-ar"],
-	"icons": [
-	  {
-		"src": "assets/images/icons/icon72.png",
-		"sizes": "72x72",
-		"type": "image/png"
-	  },
-	  {
-		"src": "assets/images/icons/icon96.png",
-		"sizes": "96x96",
-		"type": "image/png"
-	  },
-	  {
-		"src": "assets/images/icons/icon128.png",
-		"sizes": "128x128",
-		"type": "image/png"
-	  },
-	  {
-		"src": "assets/images/icons/icon144.png",
-		"sizes": "144x144",
-		"type": "image/png"
-	  },
-	  {
-		"src": "assets/images/icons/icon152.png",
-		"sizes": "152x152",
-		"type": "image/png"
-	  },
-	  {
-		"src": "assets/images/icons/icon192.png",
-		"sizes": "192x192",
-		"type": "image/png"
-	  },
-	  {
-		"src": "assets/images/icons/icon384.png",
-		"sizes": "384x384",
-		"type": "image/png"
-	  },
-	  {
-		"src": "assets/images/icons/icon512.png",
-		"sizes": "512x512",
-		"type": "image/png"
-	  }
-	],
-	"shortcuts": [],
-	"screenshots": [
-	 {
-      "src": "assets/images/screenshots/mobile.png",
-      "sizes": "645x1398",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Measuring length in AR"
-    },
-    {
-      "src": "assets/images/screenshots/desktop.png",
-      "sizes": "1368x912",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Measuring area in AR"
-    }
-   ]
- }
+    "short_name": "Measure XR",
+    "name": "Measure XR - AR Measurement Tool",
+    "description": "Put down the tape measure and pick up your phone! Measure XR uses WebXR to help you calculate the length, area and volume of the things around you - all straight from the browser.",
+    "categories": [
+        "utilities",
+        "tools",
+        "productivity",
+        "augmented-reality"
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "display_override": [
+        "fullscreen"
+    ],
+    "orientation": "natural",
+    "background_color": "#fcfcfc",
+    "theme_color": "#fcfcfc",
+    "lang": "en",
+    "dir": "ltr",
+    "features": [
+        "WebXR Device API",
+        "Camera Access",
+        "Gyroscope",
+        "Accelerometer"
+    ],
+    "required_features": [
+        "WebXR Device API"
+    ],
+    "permissions": [
+        "camera",
+        "gyroscope",
+        "accelerometer"
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "protocol_handlers": [
+        {
+            "protocol": "web+measurexr",
+            "url": "/?target=%s"
+        }
+    ],
+    "xr_default_mode": "immersive-ar",
+    "xr_available_modes": [
+        "immersive-ar"
+    ],
+    "icons": [
+        {
+            "src": "assets/images/icons/icon72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/icons/icon96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/icons/icon128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/icons/icon144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/icons/icon152.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/icons/icon192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/icons/icon384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/icons/icon512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "shortcuts": [],
+    "screenshots": [
+        {
+            "src": "assets/images/screenshots/mobile.png",
+            "sizes": "645x1398",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Measuring length in AR"
+        },
+        {
+            "src": "assets/images/screenshots/desktop.png",
+            "sizes": "1368x912",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Measuring area in AR"
+        }
+    ]
+}
