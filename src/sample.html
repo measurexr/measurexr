@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>three.js ar - cones</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Use CDN for three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/vr/ARButton.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        background-color: #000;
+        color: #fff;
+        font-family: Monospace;
+        font-size: 13px;
+        line-height: 24px;
+        overscroll-behavior: none;
+      }
+
+      a {
+        color: #ff0;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      #add-cone {
+        cursor: pointer;
+        text-transform: uppercase;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 14px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 99999;
+      }
+
+      button:hover {
+        background-color: #444;
+      }
+
+      #info {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        pointer-events: none;
+        z-index: 99999;
+      }
+
+      a, button, input, select {
+        pointer-events: auto;
+      }
+
+      .lil-gui {
+        z-index: 2 !important;
+      }
+
+      @media all and ( max-width: 640px ) {
+        .lil-gui.root { 
+          right: auto;
+          top: auto;
+          max-height: 50%;
+          max-width: 80%;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      #overlay {
+        position: absolute;
+        font-size: 16px;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: rgba(0,0,0,0.7);
+      }
+
+      #overlay button {
+        background: transparent;
+        border: 0;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 4px;
+        color: #ffffff;
+        padding: 12px 18px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      #notSupported {
+        width: 50%;
+        margin: auto;
+        background-color: #f00;
+        margin-top: 20px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="info">
+      <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> ar - cones<br/>(Chrome Android 81+)
+    </div>
+
+    <!-- Add a button to trigger cone addition -->
+    <button id="add-cone">Add Cone</button>
+
+    <script type="module">
+      import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js';
+      import { ARButton } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/webxr/ARButton.js';
+
+      let camera, scene, renderer;
+      let controller;
+      let geometry, material;
+
+      init();
+
+      function init() {
+
+        const container = document.createElement('div');
+        document.body.appendChild(container);
+
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 20);
+
+        const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 3);
+        light.position.set(0.5, 1, 0.25);
+        scene.add(light);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setAnimationLoop(animate);
+        renderer.xr.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        document.body.appendChild(ARButton.createButton(renderer));
+
+        // Initialize geometry for the cones
+        geometry = new THREE.ConeGeometry(0.05, 0.2, 32);
+
+        // Set up event listener to add cones when the button is clicked
+        document.getElementById('add-cone').addEventListener('click', addCone);
+
+        controller = renderer.xr.getController(0);
+        controller.addEventListener('select', addCone);
+        scene.add(controller);
+
+        window.addEventListener('resize', onWindowResize);
+      }
+
+      function addCone() {
+        const material = new THREE.MeshPhongMaterial({ color: 0xffffff * Math.random() });
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.position.set(0, 0, -0.3).applyMatrix4(controller.matrixWorld);
+        mesh.quaternion.setFromRotationMatrix(controller.matrixWorld);
+        scene.add(mesh);
+      }
+
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+
+      function animate() {
+        renderer.render(scene, camera);
+      }
+    </script>
+  </body>
+</html>
