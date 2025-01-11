@@ -87,20 +87,19 @@ html.is-desktop .is-rect-box.is-btn:hover {
   background-color: #211a1c;
   border: 1px solid #fcfcfc;
 }
-#about .is-rect-box,
-#licenses .is-rect-box {
+article .is-rect-box {
   color: #211a1c;
 }
 html.is-about #about .is-rect-box,
-#licenses .is-rect-box {
+article .is-rect-box {
   box-shadow: 4px 4px 0 #fcfcfc;
 }
 html.is-about #about .is-rect-box:before,
-#licenses .is-rect-box:before {
+article .is-rect-box:before {
   border-color: transparent #fcfcfc transparent transparent;
 }
 html.is-about #about .is-rect-box:after,
-#licenses .is-rect-box:after {
+article .is-rect-box:after {
   border-color: transparent transparent transparent #fcfcfc;
 }
 .is-rect-box.is-btn:active {
@@ -115,11 +114,11 @@ html.is-about #about .is-rect-box:after,
   border-width: 2px 0 0 2px;
 }
 html.is-about #about .is-rect-box.is-btn:active:hover,
-#licenses .is-rect-box:active:hover {
+article .is-rect-box:active:hover {
   box-shadow: 2px 2px 0 #fcfcfc;
 }
 html.is-desktop #about .is-rect-box.is-btn:hover,
-html.is-desktop #licenses .is-rect-box.is-btn:hover {
+html.is-desktop article .is-rect-box.is-btn:hover {
   color: #fff;
 }
 button,
@@ -429,7 +428,7 @@ html.is-mobile #landing-bottom {
   top: 0;
   height: 100%;
   width: 0;
-  color: #fcfcfc;
+  display: block;
 }
 #about-inner {
   pointer-events: none;
@@ -512,7 +511,7 @@ html.is-desktop #about-desc .is-desktop-only {
     padding-bottom: 40px;
   }
 }
-#licenses {
+article {
   display: none;
   position: absolute;
   left: 0;
@@ -522,7 +521,7 @@ html.is-desktop #about-desc .is-desktop-only {
   z-index: 11;
   color: #fcfcfc;
 }
-#licenses-title {
+article .title {
   position: absolute;
   padding: 10px 20px;
   left: 0;
@@ -531,26 +530,26 @@ html.is-desktop #about-desc .is-desktop-only {
   text-decoration: underline;
   opacity: 0;
 }
-html.is-desktop #licenses-title {
+html.is-desktop article .title {
   top: 90px;
 }
-#licenses-content-outer {
+article .content-outer {
   position: absolute;
   left: 0;
   top: 80px;
   width: 100%;
 }
-html.is-desktop #licenses-content-outer {
+html.is-desktop article .content-outer {
   top: 160px;
 }
-#licenses-content-inner {
+article .content-inner {
   position: relative;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
   opacity: 0;
 }
-#licenses-content {
+article .content {
   position: relative;
   width: 100%;
   height: 100%;
@@ -561,43 +560,50 @@ html.is-desktop #licenses-content-outer {
   font-size: 1.2em;
   transform: translateZ(0);
 }
-html.is-desktop #licenses-content {
+article img {
+  margin: 2em 0;
+}
+html.is-desktop article .content {
   max-height: calc(100vh - 310px);
   max-height: calc(var(--vh, 1vh) * 100 - 310px);
 }
-#licenses-content:before,
-#licenses-content:after {
+article .content:before,
+article .content:after {
   display: block;
   content: '';
   width: 100%;
   height: 15px;
 }
-html.is-desktop #licenses-content:before,
-html.is-desktop #licenses-content:after {
+html.is-desktop article .content:before,
+html.is-desktop article .content:after {
   display: none;
 }
-#licenses-content h4 {
+article .content h4 {
   margin-top: 0;
 }
-#licenses-content p {
+article .content p {
   line-height: 1.5em;
 }
-#licenses-btn {
+article .btn {
   margin-top: 20px;
   transform: translate3d(-50%, 0, 0);
   opacity: 0;
 }
 @media only screen and (max-width: 400px) {
-  html.is-mobile #licenses-content {
+  html article .content {
     padding: 0 30px;
     font-size: 1em;
   }
-  html.is-mobile #licenses-content p {
+  html article .content p {
     line-height: 1.2em;
+  }
+  article img {
+    max-width: 75%;
+    width: 100%;
   }
 }
 @media only screen and (max-height: 920px) {
-  html.is-desktop #licenses-btn {
+  html article btn {
     height: 45px;
     line-height: 45px;
     font-size: 0.9em;
@@ -901,12 +907,11 @@ playback timings (ms):
     color: #fcfcfc;
   }
 
-  .btn-icon,
   #bg-canvas {
     filter: invert(1);
   }
 
-  #licenses {
+  article {
     color: #211a1c;
   }
 
@@ -914,8 +919,7 @@ playback timings (ms):
     color: #fcfcfc;
   }
 
-  #about .is-rect-box,
-  #licenses .is-rect-box {
+  article .is-rect-box {
     color: #fcfcfc;
   }
 
@@ -930,7 +934,7 @@ playback timings (ms):
   }
 
   .is-rect-box:after {
-    border-color: transparent transparent transparent #211a1c;
+    border-color: transparent transparent #211a1c transparent ;
   }
 
   #landing-bottom-text:before {

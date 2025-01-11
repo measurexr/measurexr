@@ -1,7 +1,7 @@
 {
-	"short_name": "Measure Up",
-	"name": "Measure Up - AR Measurement Tool",
-	"description": "Put down the tape measure and pick up your phone! Measure Up uses WebXR to help you calculate the length, area and volume of the things around you - all straight from the browser.",
+	"short_name": "Measure XR",
+	"name": "Measure XR - AR Measurement Tool",
+	"description": "Put down the tape measure and pick up your phone! Measure XR uses WebXR to help you calculate the length, area and volume of the things around you - all straight from the browser.",
 	"categories": ["utilities", "tools", "productivity", "augmented-reality"],
 	"start_url": ".",
   "display": "standalone",

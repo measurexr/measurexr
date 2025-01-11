@@ -4038,7 +4038,7 @@ var global = function (name) {
             ;(h = document.getElementById('about-inner')),
               (u = document.getElementById('about-btn')),
               (p = document.getElementById('about-desc')),
-              (i = document.getElementById('about-licenses-btn')),
+              (i = document.getElementById('licenses-btn')),
               u.addEventListener('click', a),
               i.addEventListener('click', o)
           }),
@@ -4278,9 +4278,9 @@ var global = function (name) {
             c = t('../utils/ease')
           ;(n.init = function () {
             ;(l = document.getElementById('licenses')),
-              (h = document.getElementById('licenses-title')),
-              (u = document.getElementById('licenses-content-inner')),
-              (p = document.getElementById('licenses-btn')).addEventListener(
+              (h = l.querySelector('.title')),
+              (u = l.querySelector('.content-inner')),
+              (p = l.querySelector('.exit-btn')).addEventListener(
                 'click',
                 r,
               )
