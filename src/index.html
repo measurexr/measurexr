@@ -111,7 +111,8 @@
             ua,
           ) ||
           ((/iPad|iPhone|iPod/.test(n.platform) ||
-            (n.platform === 'MacIntel' && n.maxTouchPoints > 1)) &&
+            (navigator && navigator.maxTouchPoints > 0) ||
+              (n.platform === 'MacIntel' && n.maxTouchPoints > 1)) &&
             !window.MSStream)
         d.classList.toggle('is-android-chrome', isAndroidChrome)
         d.classList.toggle('is-mobile', isMobile)
