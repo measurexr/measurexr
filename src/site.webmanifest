@@ -29,8 +29,8 @@
   "prefer_related_applications": false,
   "protocol_handlers": [
     {
-      "protocol": "web+measureup",
-      "url": "/measure?target=%s"
+      "protocol": "web+measurexr",
+      "url": "/?target=%s"
     }
   ],
   "xr_default_mode": "immersive-ar",

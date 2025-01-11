@@ -1,14 +1,15 @@
 {
-  "name": "measure-xr",
+  "name": "measurexr",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "With Measure XR, you can measure spaces and objects around you using WebXR.",
   "scripts": {
     "format": "prettier --log-level=warn --write ./src/**/*.{js,css,html}",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/japanim/jap-collection-client.git"
+  },
   "dependencies": {
     "prettier": "^3.4.2"
   },
